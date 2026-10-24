@@ -1,48 +1,28 @@
 <template>
-  <div class="container">
+  <main class="container">
     <div class="input-container">
-      <div class="mail">
-        <!-- <span class="material-icons">account_circle</span> -->
-        <vs-icon icon="account_circle" size="50px"></vs-icon>
-        <vs-input
-        :success="true"
-        placeholder="Email Success"
-        v-model="value1" 
-        class="input"
-        size="large" 
-        />
-      </div>      
+      <label class="mail">
+        <span>Email</span>
+        <input v-model="value1" class="input success" type="email" autocomplete="username" placeholder="Email Success">
+      </label>
 
-      <div class="password">
-        <!-- <span class="material-icons" size="75px">lock</span> -->
-        <vs-icon icon="lock" size="50px"></vs-icon>
-        <vs-input
-        :danger="true"
-        placeholder="Password Error"
-        v-model="value2"
-        class="input"
-        size="large"
-        type="password"/>
-        <a href=""><small>Forget Password ?</small></a>
-      </div>
+      <label class="password">
+        <span>Password</span>
+        <input v-model="value2" class="input danger" type="password" autocomplete="current-password" placeholder="Password Error">
+        <a href="#"><small>Forget Password?</small></a>
+      </label>
 
       <div class="btn">
-        <vs-button color="success" type="relief" size="large"><strong>Sign up</strong></vs-button>
-
-        <vs-button color="success" type="relief" size="large">Sign in</vs-button>
+        <button type="button"><strong>Sign up</strong></button>
+        <button type="button">Sign in</button>
       </div>
-
-
     </div>
-
-  </div>
-
-
+  </main>
 </template>
 
 <script>
 export default {
-  data(){
+  data () {
     return {
       value1:"",
       value2:"",
@@ -54,8 +34,6 @@ export default {
 
 
 <style>
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-
 .container {
   background-color: #DDD;
   
@@ -74,29 +52,38 @@ export default {
 }
 
 .container .input-container .input {
-  /* background-color: #BBB; */
   width: 500px;
+  box-sizing: border-box;
 }
 
 .mail {
   margin:30px;
-  /* background-color: #AAA; */
+  display: grid;
+  gap: 8px;
 }
 
 .password {
   margin: 30px;
-  /* background-color: #AAA; */
+  display: grid;
+  gap: 8px;
+}
+
+.success {
+  border: 2px solid #2b8a3e;
+}
+
+.danger {
+  border: 2px solid #c92a2a;
 }
 
 .btn {
   margin: 10px;
 }
 
-.vs-button {
+button {
   width: 200px;
   margin-left: 10px;
   margin-right: 10px;
+  padding: 10px 16px;
 }
-
-
 </style>
